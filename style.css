@@ -1,0 +1,23 @@
+.pai {
+    display: flex;
+    justify-content: center;
+}
+.inicio {
+    justify-content: center;
+}
+.button {
+    display: flex;
+    justify-content: center;
+}
+#resultbi {
+    display: none; /* Não mostra o resultado  */
+}
+#resultdeci {
+    display: none; /* Não mostra o resultado  */
+}
+#resultoctal {
+    display: none; /* Não mostra o resultado  */
+}
+#resulthexa {
+    display: none; /* Não mostra o resultado  */
+}

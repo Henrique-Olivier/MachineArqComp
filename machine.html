@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beiço Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="pai">
+        <div class="inicio">
+            <h1>Beiço Machine</h1><br><br>
+            <input id="valorinserido" type="text" placeholder="Informe um Valor">
+            <select id="valorbase">
+                <option value="10">Decimal</option>
+                <option value="2">Binário</option>
+                <option value="8">Octal</option>
+                <option value="16">Hexadecimal</option>
+            </select>
+            <br><br>    
+            Exibir Resultado em: <br>
+            <div>  <!--  DIV COM AS CHECKBOX -->
+                <label for="checkbinario">Binário</label>          <!-- CHK BINARIO-->
+                <input type="checkbox" id="checkbinario" onchange="chkbi()">
+                <div id="resultbi"></div>
+                <br>
+                <label for="checkdecimal">Decimal</label>          <!-- CHK DECIMAL-->
+                <input type="checkbox" id="checkdeci" onchange="chkdeci()">
+                <div id="resultdeci"></div>
+                <br>
+                <label for="checkoctal">Octal</label>          <!-- CHK OCTAL-->
+                <input type="checkbox" id="checkoctal" onchange="chkoctal()">
+                <div id="resultoctal"></div>
+                <br>
+                <label for="checkhexa">Hexadecimal</label>          <!-- CHK HEXA-->
+                <input type="checkbox" id="checkhexa" onchange="chkhexa()">
+                <div id="resulthexa"></div>
+
+
+            </div>
+            <br><br>
+            <button class="button" onclick="converter()">Converter</button>
+            <br><br>
+            <div class="pai"id="resultado"></div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function converter() {
+        let valor = valorinserido.value
+        let base = Number(valorbase.value)
+        let valorDecimal = parseInt(valor, base)
+
+        console.log(`${valor}`)
+        console.log(`${base}`)
+
+        if (isNaN(valorDecimal)) {
+
+            resultado.innerHTML = ` `
+            alert('Insira um valor válido')
+            console.log(`Infome um valor válido`)
+
+        } else if (base == 10) {
+            let binario = valorDecimal.toString(2)
+            let octal = valorDecimal.toString(8)
+            let hexa = valorDecimal.toString(16).toUpperCase()
+
+            console.log(`${binario}   ${octal}   ${hexa}`)
+            resultbi.innerHTML = `Resultado em binario ${binario}`
+            resultoctal.innerHTML = `Resultado em octal ${octal}`
+            resulthexa.innerHTML = `Resultado em hexa ${hexa}`
+            resultdeci.innerHTML = `Resultado em decimal ${valorDecimal}`
+
+        } else if (base == 2) {
+            let octal = valorDecimal.toString(8)
+            let hexa = valorDecimal.toString(16).toUpperCase() 
+            let decimal = valorDecimal
+
+            resultbi.innerHTML = `Resultado em binario ${binario}`
+            resultoctal.innerHTML = `Resultado em octal ${octal}`
+            resulthexa.innerHTML = `Resultado em hexa ${hexa}`
+            resultdeci.innerHTML = `Resultado em decimal ${valorDecimal}`
+        } else if (base == 8) {
+            let binario = valorDecimal.toString(2)
+            let hexa = valorDecimal.toString(16).toUpperCase()
+            let decimal = valorDecimal
+
+            resultbi.innerHTML = `Resultado em binario ${binario}`
+            resultoctal.innerHTML = `Resultado em octal ${octal}`
+            resulthexa.innerHTML = `Resultado em hexa ${hexa}`
+            resultdeci.innerHTML = `Resultado em decimal ${valorDecimal}`
+        } else if (base == 16) {
+            let binario = valorDecimal.toString(2)
+            let octal = valorDecimal.toString(8)
+            let decimal = valorDecimal
+
+            resultbi.innerHTML = `Resultado em binario ${binario}`
+            resultoctal.innerHTML = `Resultado em octal ${octal}`
+            resulthexa.innerHTML = `Resultado em hexa ${hexa}`
+            resultdeci.innerHTML = `Resultado em decimal ${valorDecimal}`
+        }
+
+    }
+
+    function chkbi() {
+        var checkbox = document.getElementById("checkbinario");
+        var result = document.getElementById("resultbi");
+
+        if (checkbox.checked) {
+            result.style.display = "block"; // Mostra o resultado quando ta marcado
+        } else {
+            result.style.display = "none"; // Esconde o resultado quando desmarca
+        }
+    }
+    function chkdeci() {
+        var checkbox = document.getElementById("checkdeci");
+        var result = document.getElementById("resultdeci");
+
+        if (checkbox.checked) {
+            result.style.display = "block"; //  Mostra o resultado quando ta marcado
+        } else {
+            result.style.display = "none"; // Esconde o resultado quando desmarca
+        }
+    }
+    function chkoctal() {
+        var checkbox = document.getElementById("checkoctal");
+        var result = document.getElementById("resultoctal");
+
+        if (checkbox.checked) {
+            result.style.display = "block"; //  Mostra o resultado quando ta marcado
+        } else {
+            result.style.display = "none"; // Esconde o resultado quando desmarca
+        }
+    }
+    function chkhexa() {
+        var checkbox = document.getElementById("checkhexa");
+        var result = document.getElementById("resulthexa");
+
+        if (checkbox.checked) {
+            result.style.display = "block"; //  Mostra o resultado quando ta marcado
+        } else {
+            result.style.display = "none"; // Esconde o resultado quando desmarca
+        }
+    }
+</script>
