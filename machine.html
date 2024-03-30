@@ -19,23 +19,23 @@
                 <option value="8">Octal</option>
                 <option value="16">Hexadecimal</option>
             </select>
-            <br><br>    
+            <br><br>
             Exibir Resultado em: <br>
-            <div>  <!--  DIV COM AS CHECKBOX -->
-                <label for="checkbinario">Binário</label>          <!-- CHK BINARIO-->
+            <div> <!--  DIV COM AS CHECKBOX -->
+                <label for="checkbinario">Binário</label> <!-- CHK BINARIO-->
                 <input type="checkbox" id="checkbinario" onchange="chkbi()">
                 <div id="resultbi"></div>
                 <br>
-                <label for="checkdecimal">Decimal</label>          <!-- CHK DECIMAL-->
+                <label for="checkdecimal">Decimal</label> <!-- CHK DECIMAL-->
                 <input type="checkbox" id="checkdeci" onchange="chkdeci()">
                 <div id="resultdeci"></div>
                 <br>
-                <label for="checkoctal">Octal</label>          <!-- CHK OCTAL-->
+                <label for="checkoctal">Octal</label> <!-- CHK OCTAL-->
                 <input type="checkbox" id="checkoctal" onchange="chkoctal()">
                 <div id="resultoctal"></div>
                 <br>
-                <label for="checkhexa">Hexadecimal</label>          <!-- CHK HEXA-->
-                <input type="checkbox" id="checkhexa" onchange="chkhexa()">
+                <label for="checkhexa">Hexadecimal</label> <!-- CHK HEXA-->
+                <input type="checkbox" id="checkhexa" onchange="chkhexa()"> 
                 <div id="resulthexa"></div>
 
 
@@ -43,7 +43,7 @@
             <br><br>
             <button class="button" onclick="converter()">Converter</button>
             <br><br>
-            <div class="pai"id="resultado"></div>
+            <div class="pai" id="resultado"></div>
 
 
         </div>
@@ -63,44 +63,36 @@
 
         if (isNaN(valorDecimal)) {
 
-            resultado.innerHTML = ` `
+            resultado.innerHTML = `ERRO!`
             alert('Insira um valor válido')
             console.log(`Infome um valor válido`)
 
-        } else if (base == 10) {
-            let binario = valorDecimal.toString(2)
-            let octal = valorDecimal.toString(8)
-            let hexa = valorDecimal.toString(16).toUpperCase()
+        } else {
+            if (base == 10) {
+                var binario = valorDecimal.toString(2)
+                var octal = valorDecimal.toString(8)
+                var hexa = valorDecimal.toString(16).toUpperCase()
 
-            console.log(`${binario}   ${octal}   ${hexa}`)
-            resultbi.innerHTML = `Resultado em binario ${binario}`
-            resultoctal.innerHTML = `Resultado em octal ${octal}`
-            resulthexa.innerHTML = `Resultado em hexa ${hexa}`
-            resultdeci.innerHTML = `Resultado em decimal ${valorDecimal}`
+                console.log(`${binario}   ${octal}   ${hexa}`)
 
-        } else if (base == 2) {
-            let octal = valorDecimal.toString(8)
-            let hexa = valorDecimal.toString(16).toUpperCase() 
-            let decimal = valorDecimal
+            } else if (base == 2) {
+                var octal = valorDecimal.toString(8)
+                var hexa = valorDecimal.toString(16).toUpperCase()
+                var decimal = valorDecimal
 
-            resultbi.innerHTML = `Resultado em binario ${binario}`
-            resultoctal.innerHTML = `Resultado em octal ${octal}`
-            resulthexa.innerHTML = `Resultado em hexa ${hexa}`
-            resultdeci.innerHTML = `Resultado em decimal ${valorDecimal}`
-        } else if (base == 8) {
-            let binario = valorDecimal.toString(2)
-            let hexa = valorDecimal.toString(16).toUpperCase()
-            let decimal = valorDecimal
+            } else if (base == 8) {
+                var binario = valorDecimal.toString(2)
+                var hexa = valorDecimal.toString(16).toUpperCase()
+                var decimal = valorDecimal
 
-            resultbi.innerHTML = `Resultado em binario ${binario}`
-            resultoctal.innerHTML = `Resultado em octal ${octal}`
-            resulthexa.innerHTML = `Resultado em hexa ${hexa}`
-            resultdeci.innerHTML = `Resultado em decimal ${valorDecimal}`
-        } else if (base == 16) {
-            let binario = valorDecimal.toString(2)
-            let octal = valorDecimal.toString(8)
-            let decimal = valorDecimal
+            } else if (base == 16) {
+                var binario = valorDecimal.toString(2)
+                var octal = valorDecimal.toString(8)
+                var decimal = valorDecimal
+                var hexa = valorDecimal.toString(16)
+            }
 
+            console.log('aonde eu estou')
             resultbi.innerHTML = `Resultado em binario ${binario}`
             resultoctal.innerHTML = `Resultado em octal ${octal}`
             resulthexa.innerHTML = `Resultado em hexa ${hexa}`
